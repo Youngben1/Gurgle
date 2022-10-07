@@ -4,7 +4,7 @@ import { useDebounce } from "use-debounce";
 import { useResultContext } from "../contexts/ResultContextProvider";
 
 const Search = () => {
-  const [text, setText] = useState("Ronaldo");
+  const [text, setText] = useState("");
   const { setSearchTerm } = useResultContext();
   const [debouncedValue] = useDebounce(text, 300);
 
@@ -13,12 +13,12 @@ const Search = () => {
   }, [debouncedValue]);
 
   return (
-    <div className="relative sm:ml-48 md:ml-72 sm:-mt-10 mt-3">
+    <div className="relative mt-3 sm:ml-48 md:ml-72 sm:-mt-10">
       <input
         placeholder="wetin you de find werey?"
         value={text}
         input="text"
-        className="sm:w-96 w-80 h-10 dark:bg-gray-200 border rounded-full outline-none p-6 text-black hover:shadow-lg"
+        className="h-10 p-6 text-black border rounded-full outline-none sm:w-96 w-80 dark:bg-gray-200 hover:shadow-lg"
         onChange={(e) => setText(e.target.value)}
       />
       {text && (
